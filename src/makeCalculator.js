@@ -7,29 +7,37 @@ function makeCalculator() {
   return {
     result: 0,
 
-    add: function (num) {
-      return this.result + num;
+    add(num) {
+      this.result += num;
+
+      return this.result;
     },
 
-    subtract: function (num) {
-      return this.result - num;
+    subtract(num) {
+      this.result -= num;
+
+      return this.result;
     },
 
-    multiply: function (num) {
-      return this.result * num;
+    multiply(num) {
+      this.result *= num;
+
+      return this.result;
     },
 
-    divide: function (num) {
-      return this.result / num;
+    divide(num) {
+      this.result /= num;
+
+      return this.result;
     },
 
-    operate: function (operationFn, num) {
-      this.result = operationFn.call(this, num);
+    operate(operationFn, num) {
+      operationFn.call(this, num);
 
       return this;
     },
 
-    reset: function () {
+    reset() {
       this.result = 0;
 
       return this;
